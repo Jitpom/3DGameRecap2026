@@ -16,6 +16,7 @@ public class SpawnManager : MonoBehaviour
     {
         int spawnID = Random.Range(0, spawnPoints.Length); // Randomly select a spawn point index
         Debug.Log("Spawning enemy at spawn point: " + spawnID);
+        GameObject enemy = Instantiate(enemyPrefab, spawnPoints[spawnID].transform.position, Quaternion.identity); // Instantiate the enemy at the selected spawn point
         
         yield return new WaitForSeconds(2f); // Wait for 2 seconds before spawning the enemy        
         StartCoroutine(SpawnEnemy()); // Recursively call SpawnEnemy to continue spawning enemies

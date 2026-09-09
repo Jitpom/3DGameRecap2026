@@ -3,6 +3,7 @@ using UnityEngine;
 public class MoveObjectWithLerp : MonoBehaviour
 {
     public GameObject target; // The target GameObject to move towards
+    public float speed = 0.1f; // The speed of movement towards the target
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
@@ -11,7 +12,7 @@ public class MoveObjectWithLerp : MonoBehaviour
     {
         if (target != null) //Check if the target is not null to avoid errors
         {
-            transform.position = Vector3.Lerp(transform.position, target.transform.position, 0.5f);
+            transform.position = Vector3.Lerp(transform.position, target.transform.position, speed * Time.deltaTime); // Move the object towards the target using Lerp
         }
     }
 }
